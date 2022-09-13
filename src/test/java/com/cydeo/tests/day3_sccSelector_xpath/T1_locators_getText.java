@@ -1,5 +1,6 @@
 package com.cydeo.tests.day3_sccSelector_xpath;
 
+import com.cydeo.utilities.WebDriverFactory;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -24,8 +25,11 @@ public class T1_locators_getText {
 
         //1- Open a chrome browser
 
-        WebDriverManager.chromedriver().setup();
-        WebDriver driver = new ChromeDriver();
+        WebDriver driver = WebDriverFactory.getDriver("chrome");
+
+//        WebDriverManager.chromedriver().setup();
+//        WebDriver driver = new ChromeDriver();
+
         driver.manage().window().maximize();
 
         // Go to: https://login1.nextbasecrm.com/
@@ -65,7 +69,7 @@ public class T1_locators_getText {
 
         driver.close();
 
-        
+
 
     }
 }
