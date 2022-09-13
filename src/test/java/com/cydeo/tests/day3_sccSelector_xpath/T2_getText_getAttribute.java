@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 
 import java.util.IllegalFormatCodePointException;
 
+
 public class T2_getText_getAttribute {
 
     public static void main(String[] args) {
