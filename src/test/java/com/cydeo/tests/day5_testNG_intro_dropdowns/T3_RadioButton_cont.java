@@ -22,19 +22,33 @@ public class T3_RadioButton_cont {
         driver.get("https://practice.cydeo.com/radio_buttons");
 
 //        Locate name='sports' radio buttons and store them in a List of Web Element
-        List<WebElement> sportRadioButtons = driver.findElements(By.name("sport"));
-        // Look through the List of WebElement and select mattching result "hockey"
-        for (WebElement each : sportRadioButtons) {
 
-           String eachId = each.getAttribute("id");
+clickAndVerifyRadioButton(driver, "sport", "hockey");
+clickAndVerifyRadioButton(driver, "sport", "football");
+clickAndVerifyRadioButton(driver, "color", "yellow");
 
-            System.out.println("eachId = " + eachId);
 
-            if (eachId.equals("hockey")) {
-                
+    }
+
+    private static void clickAndVerifyRadioButton (WebDriver driver, String nameAttribute, String idValue) {
+        List<WebElement> radioButtons = driver.findElements(By.name(nameAttribute));
+
+        // Look through the List of WebElement and select matching result "hockey"
+        for (WebElement each : radioButtons) {
+
+            String eachId = each.getAttribute("id");
+
+           // System.out.println("eachId = " + eachId);
+
+            if (eachId.equals(idValue)) {
+
                 each.click();
+                System.out.println(eachId +" is selected : " + each.isSelected());
+                break;
             }
         }
+    }
+}
 
         //4. Verify “Hockey” radio button is selected after clicking.
 
@@ -47,5 +61,4 @@ public class T3_RadioButton_cont {
 //        1. WebDriver
 //        2. Name attribute as String (for providing which group of radio buttons)
 //        3. Id attribute as String (for providing which radio button to be clicked)
-    }
-}
+
