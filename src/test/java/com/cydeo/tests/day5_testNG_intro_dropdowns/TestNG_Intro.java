@@ -14,15 +14,15 @@ public class TestNG_Intro {
 
     @AfterMethod
     public void tearDownMethod() {
-        System.out.println("--> AfterMethod is running...");
+        System.out.println("--> AfterMethod is running!");
     }
 
-    @Test
+    @Test (priority = 2)
     public void test1() {
         System.out.println("Test 1 is running...");
     }
 
-    @Test
+    @Test (priority = 1)
 
     public void test2(){
         System.out.println("Test2 is running...");
