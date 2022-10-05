@@ -48,14 +48,14 @@ public class T1_WebTable_Order_Verify {
 //    Expected: 12/31/2021
 
     WebElement bobMartinDateCell;
-    bobMartinDateCell = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr[7]/td[5]"));
+    bobMartinDateCell = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']//td[.='Bob Martin']/following-sibling::td[3]"));
 
     System.out.println("bobMartinDateCell.getText() = " + bobMartinDateCell.getText());
 
     String expectedBobDate = "12/31/2021";
     String actualBobDate = bobMartinDateCell.getText();
 
-    Assert.assertEquals(actualBobDate, expectedBobDate);
+    Assert.assertEquals(expectedBobDate, actualBobDate);
 
 }
 }
