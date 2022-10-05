@@ -4,6 +4,7 @@ import com.cydeo.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -34,11 +35,27 @@ public class T1_WebTable_Order_Verify {
     System.out.println("bobMartinCell.getText() = " + bobMartinCell.getText());
 
 //            2. Verify Bob’s name is listed as expected.
-    
+    //    Expected: “Bob Martin”
 
-//    Expected: “Bob Martin”
+    String expectedBobName = "Bob Martin";
+    String actualBobName = bobMartinCell.getText();
+
+    Assert.assertEquals(actualBobName, expectedBobName);
+
+
+
 //            3. Verify Bob Martin’s order date is as expected
 //    Expected: 12/31/2021
+
+    WebElement bobMartinDateCell;
+    bobMartinDateCell = driver.findElement(By.xpath("//table[@id='ctl00_MainContent_orderGrid']/tbody/tr[7]/td[5]"));
+
+    System.out.println("bobMartinDateCell.getText() = " + bobMartinDateCell.getText());
+
+    String expectedBobDate = "12/31/2021";
+    String actualBobDate = bobMartinDateCell.getText();
+
+    Assert.assertEquals(actualBobDate, expectedBobDate);
 
 }
 }
