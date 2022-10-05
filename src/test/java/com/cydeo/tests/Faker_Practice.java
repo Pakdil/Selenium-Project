@@ -18,7 +18,7 @@ public class Faker_Practice {
         System.out.println("faker.address().zipCode() = " + faker.address().zipCode());
 
         System.out.println("faker.number().numberBetween(10000,90000) = " + faker.number().numberBetween(10000, 90000));
-        System.out.println("faker.numerify(\"###-###-####\") = " + faker.numerify("###-###-####"));
+        System.out.println("faker.numerify(\"212-###-####\") = " + faker.numerify("212-###-####"));
         System.out.println("faker.letterify(\"??????\") = " + faker.letterify("??????"));
 
     }
