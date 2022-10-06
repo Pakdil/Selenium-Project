@@ -26,7 +26,7 @@ public class T1_WebTable_Order_Verify {
         driver.get(" https://practice.cydeo.com/web-tables ");
     }
 
-@Test
+    @Test
         public void order_name_verify_test() {
 
         //Locate the cell that has Bob Martin text in it
@@ -59,8 +59,7 @@ public class T1_WebTable_Order_Verify {
     Assert.assertEquals(expectedBobDate, actualBobDate);
 
 }
-// We use the utility method we created.
-
+     // We use the utility method we created.
     @Test
     public void test2() {
         String customerOrderDate1 = WebTableUtils.returnOrderDate(driver,"Alexandra Gray");
@@ -72,5 +71,12 @@ public class T1_WebTable_Order_Verify {
 
 
 
+    }
+
+    //Using WebTableUtils.orderVerify(); method
+
+    @Test
+    public void test3() {
+        WebTableUtils.orderVerify(driver, "Bart Fisher", "01/16/2021");
     }
 }
