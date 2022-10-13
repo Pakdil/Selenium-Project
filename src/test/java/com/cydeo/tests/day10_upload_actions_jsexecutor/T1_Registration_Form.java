@@ -1,11 +1,13 @@
 package com.cydeo.tests.day10_upload_actions_jsexecutor;
 
-import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.utilities.ConfigurationReader;
+import com.cydeo.utilities.Driver;
+import com.github.javafaker.Faker;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-import java.util.concurrent.TimeUnit;
 
 public class T1_Registration_Form {
 
@@ -13,9 +15,9 @@ public class T1_Registration_Form {
 
     @BeforeMethod
     public void setupMethod() {
-        driver = WebDriverFactory.getDriver("chrome");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//        driver = WebDriverFactory.getDriver("chrome");
+//        driver.manage().window().maximize();
+//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @Test
@@ -25,8 +27,22 @@ public class T1_Registration_Form {
 //        Note: Use JavaFaker OR read from configuration.properties file when possible.
 //        1. Open browser
 //        2. Go to website: https://practice.cydeo.com/registration_form
+       // driver.get("https://practice.cydeo.com/registration_form");
+        //Driver.getDriver() --> driver.get(url)
+        Driver.getDriver().get(ConfigurationReader.getProperty("registration.form.url"));
+
+        //Create JavaFaker object
+        Faker faker = new Faker();
 //        3. Enter first name
-//        4. Enter last name
+        WebElement inputFirstName = Driver.getDriver().findElement(By.xpath("//input[@name='firstname']"));
+
+        inputFirstName.sendKeys(faker.name().firstName());
+
+        WebElement inputLastName = Driver.getDriver().findElement(By.xpath("//input[@name='lastname']"));
+
+        inputLastName.sendKeys(faker.name().lastName());
+
+//       4. Enter last name
 //        5. Enter username
 //        6. Enter email address
 //        7. Enter password
