@@ -40,7 +40,9 @@ public class T1_Registration_Form {
 
         WebElement inputLastName = Driver.getDriver().findElement(By.xpath("//input[@name='lastname']"));
 
-        inputLastName.sendKeys(faker.name().lastName());
+        String fakerLastName = faker.name().lastName();
+
+        inputLastName.sendKeys(fakerLastName);
 
 //       4. Enter last name
 //        5. Enter username
