@@ -1,11 +1,9 @@
 package com.cydeo.tests.day3_sccSelector_xpath;
 
-import com.cydeo.utilities.WebDriverFactory;
+import com.cydeo.tests.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import java.util.IllegalFormatCodePointException;
 
 
 public class T2_getText_getAttribute {
