@@ -10,6 +10,7 @@ package com.cydeo.tests.utilities;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class WebDriverFactory {
@@ -22,7 +23,7 @@ public class WebDriverFactory {
         } else if (browserType.equalsIgnoreCase("firefox")) {
             WebDriverManager.firefoxdriver().setup();
             return new FirefoxDriver();
-        }  else {
+        } else {
             System.out.println("Given browser type does not exits/or is not currently supported");
             System.out.println("Driver = null");
             return null;
